@@ -479,7 +479,6 @@ neverallow {
     system_file_type
     vendor_file_type
     exec_type
-    -evs_domain
 }:dir_file_class_set { create write setattr relabelfrom append unlink link rename };
 
 neverallow { domain -kernel with_asan(`-asan_extract') } { system_file_type vendor_file_type exec_type }:dir_file_class_set relabelto;
@@ -635,7 +634,6 @@ full_treble_only(`
     -coredomain
     -appdomain
     -binder_in_vendor_violators # TODO(b/35870313): Remove once all violations are gone
-    -evs_domain
   } binder_device:chr_file rw_file_perms;
 ')
 
@@ -649,7 +647,6 @@ full_treble_only(`
     -coredomain
     -appdomain # restrictions for vendor apps are declared lower down
     -binder_in_vendor_violators # TODO(b/35870313): Remove once all violations are gone
-    -evs_domain
   } service_manager_type:service_manager find;
 ')
 full_treble_only(`
@@ -683,7 +680,6 @@ full_treble_only(`
     -coredomain
     -appdomain
     -binder_in_vendor_violators # TODO(b/35870313): Remove once all violations are gone
-    -evs_domain
   } servicemanager:binder { call transfer };
 ')
 
@@ -962,7 +958,6 @@ full_treble_only(`
         -appdomain
         -vendor_executes_system_violators
         -vendor_init
-        -evs_domain
     } {
         system_file_type
         -system_lib_file
