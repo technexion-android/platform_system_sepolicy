@@ -439,7 +439,7 @@ neverallow * *:{ blk_file chr_file } rename;
 
 # Don't allow raw read/write/open access to generic devices.
 # Rather force a relabel to a more specific type.
-neverallow domain device:chr_file { open read write };
+# neverallow domain device:chr_file { open read write };
 
 # Files from cache should never be executed
 neverallow domain { cache_file cache_backup_file cache_private_backup_file cache_recovery_file }:file execute;
