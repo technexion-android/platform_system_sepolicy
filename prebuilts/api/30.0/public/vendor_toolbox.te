@@ -12,5 +12,5 @@ full_treble_only(`
         coredomain
         -init
         -modprobe
-    } vendor_toolbox_exec:file { entrypoint execute execute_no_trans };
+    } vendor_toolbox_exec:file { entrypoint execute_no_trans };
 ')

@@ -465,7 +465,6 @@ neverallow { domain userdebug_or_eng(`-shell') } nativetest_data_file:file no_x_
 # Only the init property service should write to /data/property and /dev/__properties__
 neverallow { domain -init } property_data_file:dir no_w_dir_perms;
 neverallow { domain -init } property_data_file:file { no_w_file_perms no_x_file_perms };
-neverallow { domain -init } property_type:file { no_w_file_perms no_x_file_perms };
 neverallow { domain -init } properties_device:file { no_w_file_perms no_x_file_perms };
 neverallow { domain -init } properties_serial:file { no_w_file_perms no_x_file_perms };
 
@@ -534,7 +533,6 @@ compatible_property_only(`
     neverallow { domain -init } exported_secure_prop:property_service set;
     neverallow { domain -init } exported2_default_prop:property_service set;
     neverallow { domain -init -vendor_init } exported3_default_prop:property_service set;
-    neverallow { domain -init -vendor_init } vendor_default_prop:property_service set;
     neverallow { domain -init -vendor_init } storage_config_prop:property_service set;
 ')
 
