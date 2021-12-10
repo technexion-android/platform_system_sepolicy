@@ -104,14 +104,6 @@ full_treble_only(`
     -vold
   } proc:file no_rw_file_perms;
 
-  # /sys
-  neverallow {
-    coredomain
-    -init
-    -ueventd
-    -vold
-  } sysfs:file no_rw_file_perms;
-
   # /dev
   neverallow {
     coredomain
